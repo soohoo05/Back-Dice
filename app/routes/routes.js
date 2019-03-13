@@ -50,7 +50,6 @@ module.exports = function(app,db){
         res.send({'error':'An error has occured'})
       }
       else{
-        console.log(item)
         res.send(item)
       }
     })
@@ -69,4 +68,38 @@ module.exports = function(app,db){
       }
     })
   })
+
+
+app.get('/dicestats',(req,res)=>{
+  db.collection('dice').find().toArray((err,item)=>{
+    if(err){
+      res.send({'error':'An error has occured'})
+    }
+    else{
+      let stats = createStatObj(item)
+      res.send(stats)
+    }
+  })
+})
+}//exports
+function createStatObj(Obj){
+  console.log(Obj)
+let stats={
+  total:Obj.length,
+  1:Obj.filter(dice=> dice.roll===1).length,
+  "1%":Obj.filter(dice=> dice.roll===1).length/Obj.length,
+  2:Obj.filter(dice=> dice.roll===2).length,
+  "2%":Obj.filter(dice=> dice.roll===2).length/Obj.length,
+  3:Obj.filter(dice=> dice.roll===3).length,
+  "3%":Obj.filter(dice=> dice.roll===3).length/Obj.length,
+  4:Obj.filter(dice=> dice.roll===4).length,
+  "4%":Obj.filter(dice=> dice.roll===4).length/Obj.length,
+  5:Obj.filter(dice=> dice.roll===5).length,
+  "5%":Obj.filter(dice=> dice.roll===5).length/Obj.length,
+  6:Obj.filter(dice=> dice.roll===6).length,
+  "6%":Obj.filter(dice=> dice.roll===6).length/Obj.length,
+
+
+}
+  return stats
 }
