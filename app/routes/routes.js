@@ -87,17 +87,17 @@ function createStatObj(Obj){
 let stats={
   total:Obj.length,
   1:Obj.filter(dice=> dice.roll===1).length,
-  "1%":Obj.filter(dice=> dice.roll===1).length/Obj.length,
+  "1%":((Obj.filter(dice=> dice.roll===1).length/Obj.length)*100).toFixed(2),
   2:Obj.filter(dice=> dice.roll===2).length,
-  "2%":Obj.filter(dice=> dice.roll===2).length/Obj.length,
+  "2%":((Obj.filter(dice=> dice.roll===2).length/Obj.length)*100).toFixed(2),
   3:Obj.filter(dice=> dice.roll===3).length,
-  "3%":Obj.filter(dice=> dice.roll===3).length/Obj.length,
+  "3%":((Obj.filter(dice=> dice.roll===3).length/Obj.length)*100).toFixed(2),
   4:Obj.filter(dice=> dice.roll===4).length,
-  "4%":Obj.filter(dice=> dice.roll===4).length/Obj.length,
+  "4%":((Obj.filter(dice=> dice.roll===4).length/Obj.length)*100).toFixed(2),
   5:Obj.filter(dice=> dice.roll===5).length,
-  "5%":Obj.filter(dice=> dice.roll===5).length/Obj.length,
+  "5%":((Obj.filter(dice=> dice.roll===5).length/Obj.length)*100).toFixed(2),
   6:Obj.filter(dice=> dice.roll===6).length,
-  "6%":Obj.filter(dice=> dice.roll===6).length/Obj.length,
+  "6%":((Obj.filter(dice=> dice.roll===6).length/Obj.length)*100).toFixed(2),
 
 
 }
